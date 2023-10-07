@@ -1,37 +1,30 @@
 import { Text, View } from 'react-native';
 import { styles } from './styles';
 import { Header } from '../../components/Header';
+import { Task } from '../../components/Task';
 
 export function Home() {
 
     return(
         <View style={styles.container}>
-           <Header/>
-           
-           <View style={styles.tasksContainer}>
-          
-					
+           <Header/>    
+			<View style={styles.tasksContainer}>
+				<View style={styles.info}>	
+					<View style={styles.row}>
 						<Text style={styles.tasksCreated}>Criadas</Text>
-
 						<View style={styles.counterContainer}>
-							<Text style={styles.counterText}>
-								0
-							</Text>
+							<Text style={styles.counterText}>0</Text>
 						</View>
-					
-					
-						<Text style={styles.tasksDone}>Concluídas</Text>
-                        
+					</View>
+					<View style={styles.row}>
+						<Text style={styles.tasksDone}>Concluídas</Text>                        
 						<View style={styles.counterContainer}>
-							<Text style={styles.counterText}>
-								0
-							</Text>
-						</View>
-					
-				</View>
-        
-
-       
+							<Text style={styles.counterText}>0</Text>							
+						</View>	
+					</View>
+				</View>	
+				<Task/>  
+			</View>
         </View>
       
     )

@@ -4,17 +4,24 @@ import { View, Text} from "react-native";
 import {styles} from "./styles";
 import { theme } from "../../theme";
 
-export function Task(){
+type Props = {
+    id?: string
+    title: string
+    isCompleted: boolean
+}
+
+
+export function Task({title, isCompleted}: Props){
     return <View style={styles.taskContainer}>
         <TouchableOpacity>
             <MaterialCommunityIcons
-                name="checkbox-multiple-marked-circle-outline"
+                name={isCompleted ? "checkbox-multiple-marked-circle-outline" : "checkbox-blank-circle-outline"}
                 size={22}
-                color={theme.colors.purple}
+                color={isCompleted ? theme.colors.purple : theme.colors.blue }
             />
         </TouchableOpacity>
-        <View>
-            <Text>Estudar JavaScript</Text>
+        <View style={styles.textContainer}>
+            <Text style={isCompleted ? styles.textDone : styles.textCreated }>{title}</Text>
         </View>
 
         <TouchableOpacity>

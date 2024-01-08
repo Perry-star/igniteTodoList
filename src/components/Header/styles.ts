@@ -32,6 +32,9 @@ export const styles = StyleSheet.create({
 		borderColor: theme.colors.gray700,
 		borderWidth: 1,
 	},
+	inputBorder: {
+		borderColor: theme.colors.purple,
+	},
 
     button: {
 		height: 54,

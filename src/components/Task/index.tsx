@@ -5,15 +5,17 @@ import {styles} from "./styles";
 import { theme } from "../../theme";
 
 type Props = {
-    id?: string
+    id: string
     title: string
     isCompleted: boolean
+    onTaskComplete: (id: string) => void
+    onTaskDeleted: (id: string) => void
 }
 
 
-export function Task({title, isCompleted}: Props){
+export function Task({id, title, isCompleted, onTaskComplete, onTaskDeleted}: Props){
     return <View style={styles.taskContainer}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => onTaskComplete(id)}>
             <MaterialCommunityIcons
                 name={isCompleted ? "checkbox-multiple-marked-circle-outline" : "checkbox-blank-circle-outline"}
                 size={22}
@@ -24,7 +26,7 @@ export function Task({title, isCompleted}: Props){
             <Text style={isCompleted ? styles.textDone : styles.textCreated }>{title}</Text>
         </View>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => onTaskDeleted(id)}>
             <MaterialCommunityIcons
                 name="trash-can-outline"
                 size={20}
